@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true, // 允许编译 js
-    "lib": ["es2015", "es2017", "es2018", "es2019"], //编译过程中需要引入的库文件的列表
+    "lib": ["dom", "es2015", "es2017", "es2018", "es2019"], //编译过程中需要引入的库文件的列表
     "module": "commonjs", // 指定生成模块系统 commonjs
     "moduleResolution": "node", // 如何处理模块
     "target": "es2018", // 编译目标版本
@@ -12,7 +12,8 @@
     "noImplicitAny": true, // 在表达式和声明上有隐含的any类型时报错
     "esModuleInterop": true, // 兼容模块导入的方式
     "resolveJsonModule": true, // 允许导入带有“.json”扩展名的模块
-    "outDir": "server-build" // 编译文件输出目录
+    "outDir": "server-build", // 编译文件输出目录
+    "jsx": "react"
   },
   "include": ["server/**/*"] // 设定编译时包含的文件
 }
