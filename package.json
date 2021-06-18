@@ -5,9 +5,9 @@
   "main": "server-build/server.js",
   "scripts": {
     "start": "pnpm run build & node ${npm_package_main}",
-    "dev": "pnpm run build & nodemon -e ts,njk --watch server/ ${npm_package_main}",
+    "dev": "pnpm run build & nodemon --inspect ${npm_package_main}",
     "build": "pnpm run build:client & pnpm run build:server",
-    "build:server": "tsc && cp -r ./server/templates ./server-build",
+    "build:server": "webpack --mode development --config webpack.server.js --watch",
     "build:client": "webpack --mode development --config webpack.client.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,10 +31,12 @@
     "@types/nunjucks": "^3.1.4",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.7",
+    "copy-webpack-plugin": "^9.0.0",
     "nodemon": "^2.0.7",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.3",
     "webpack": "^5.39.1",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "webpack-node-externals": "^3.0.0"
   }
 }
